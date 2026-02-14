@@ -8,21 +8,24 @@ import PaymentSection from "@/components/PaymentSection";
 import WhatsAppPromo from "@/components/WhatsAppPromo";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { LanguageProvider } from "@/i18n/LanguageContext";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-      <HeroSection />
-      <MissionVision />
-      <BenefitsSection />
-      <SearchCTA />
-      <PackagesSection />
-      <PaymentSection />
-      <WhatsAppPromo />
-      <Footer />
-      <WhatsAppButton />
-    </div>
+    <LanguageProvider>
+      <div className="min-h-screen bg-background">
+        <Navbar />
+        <HeroSection />
+        <MissionVision />
+        <BenefitsSection />
+        <SearchCTA />
+        <PackagesSection />
+        <PaymentSection />
+        <WhatsAppPromo />
+        <Footer />
+        <WhatsAppButton />
+      </div>
+    </LanguageProvider>
   );
 };
 
