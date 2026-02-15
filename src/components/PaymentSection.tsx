@@ -5,10 +5,8 @@ import { useLanguage } from "@/i18n/LanguageContext";
 const methods = [
   { icon: "💳", label: "Visa" },
   { icon: "💳", label: "Mastercard" },
-  { icon: "💳", label: "Amex" },
   { icon: "📱", label: "PIX" },
   { icon: "🏦", label: "Transferencia" },
-  { icon: "📲", label: "QR Code" },
 ];
 
 const PaymentSection = () => {

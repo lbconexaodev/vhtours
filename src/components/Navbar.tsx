@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Plane, Globe } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Menu, X, Globe } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import type { Language } from "@/i18n/translations";
 
@@ -34,21 +35,23 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/95 backdrop-blur-md shadow-lg border-b border-border"
-          : "bg-transparent"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background shadow-lg border-b border-border"
     >
       <div className="container mx-auto px-4 md:px-8">
         <nav className="flex items-center justify-between h-20">
           <a href="#home" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-full vh-gradient flex items-center justify-center">
-              <Plane className="w-5 h-5 text-primary-foreground" />
-            </div>
-            <span className={`text-xl font-display font-bold tracking-tight transition-colors ${
-              scrolled ? "text-foreground" : "text-primary-foreground"
-            }`}>
+            <video
+              className="w-11 h-11 rounded-full object-cover bg-white"
+              autoPlay
+              loop
+              muted
+              playsInline
+              poster="/logo-vhtours.jpg"
+            >
+              <source src="/logo-animado-vhtours.mp4" type="video/mp4" />
+              <img src="/logo-vhtours.jpg" alt="VH Tours Logo" />
+            </video>
+            <span className="text-xl font-display font-bold tracking-tight text-foreground transition-colors">
               VH TOURS
             </span>
           </a>
@@ -60,11 +63,7 @@ const Navbar = () => {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className={`px-3 py-2 rounded-lg text-sm font-medium transition-all hover:bg-primary/10 ${
-                      scrolled
-                        ? "text-foreground hover:text-primary"
-                        : "text-primary-foreground/90 hover:text-primary-foreground"
-                    }`}
+                    className="px-3 py-2 rounded-lg text-sm font-medium text-foreground hover:text-primary transition-all hover:bg-primary/10"
                   >
                     {item.label}
                   </a>
@@ -73,12 +72,16 @@ const Navbar = () => {
             </ul>
 
             {/* Language Selector */}
-            <div className="relative ml-3">
+            <Link
+              to="/admin"
+              className="ml-2 mr-1 px-3 py-2 rounded-lg text-sm font-medium text-foreground hover:text-primary transition-all hover:bg-primary/10"
+            >
+              {t("nav.admin")}
+            </Link>
+            <div className="relative ml-1">
               <button
                 onClick={() => setLangOpen(!langOpen)}
-                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all hover:bg-primary/10 ${
-                  scrolled ? "text-foreground" : "text-primary-foreground/90"
-                }`}
+                className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-foreground transition-all hover:bg-primary/10"
               >
                 <Globe className="w-4 h-4" />
                 {langFlags[language]} {langLabels[language]}
@@ -95,9 +98,8 @@ const Navbar = () => {
                       <button
                         key={lang}
                         onClick={() => { setLanguage(lang); setLangOpen(false); }}
-                        className={`w-full flex items-center gap-2 px-4 py-2.5 text-sm hover:bg-secondary transition-colors ${
-                          language === lang ? "text-primary font-bold" : "text-foreground"
-                        }`}
+                        className={`w-full flex items-center gap-2 px-4 py-2.5 text-sm hover:bg-secondary transition-colors ${language === lang ? "text-primary font-bold" : "text-foreground"
+                          }`}
                       >
                         {langFlags[lang]} {langLabels[lang]}
                       </button>
@@ -112,17 +114,13 @@ const Navbar = () => {
           <div className="flex items-center gap-2 lg:hidden">
             <button
               onClick={() => setLangOpen(!langOpen)}
-              className={`p-2 rounded-lg transition-colors ${
-                scrolled ? "text-foreground" : "text-primary-foreground"
-              }`}
+              className="p-2 rounded-lg text-foreground transition-colors"
             >
               <Globe className="w-5 h-5" />
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-2 rounded-lg transition-colors ${
-                scrolled ? "text-foreground" : "text-primary-foreground"
-              }`}
+              className="p-2 rounded-lg text-foreground transition-colors"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -144,11 +142,10 @@ const Navbar = () => {
                 <button
                   key={lang}
                   onClick={() => { setLanguage(lang); setLangOpen(false); }}
-                  className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                    language === lang
-                      ? "vh-gradient text-primary-foreground"
-                      : "bg-secondary text-foreground hover:bg-secondary/80"
-                  }`}
+                  className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all ${language === lang
+                    ? "vh-gradient text-primary-foreground"
+                    : "bg-secondary text-foreground hover:bg-secondary/80"
+                    }`}
                 >
                   {langFlags[lang]} {langLabels[lang]}
                 </button>
@@ -179,6 +176,15 @@ const Navbar = () => {
                   </a>
                 </li>
               ))}
+              <li>
+                <Link
+                  to="/admin"
+                  onClick={() => setIsOpen(false)}
+                  className="block px-4 py-3 rounded-lg text-foreground hover:bg-secondary transition-colors font-medium"
+                >
+                  {t("nav.admin")}
+                </Link>
+              </li>
             </ul>
           </motion.div>
         )}

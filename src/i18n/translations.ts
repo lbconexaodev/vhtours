@@ -10,6 +10,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "nav.packages": "Paquetes",
     "nav.payment": "Pagos",
     "nav.contact": "Contacto",
+    "nav.admin": "Area Admin",
 
     // Hero
     "hero.title1": "EL MOMENTO DE",
@@ -80,6 +81,10 @@ export const translations: Record<Language, Record<string, string>> = {
     "pkg.rio.desc": "Playas paradisíacas, samba y el Cristo Redentor te esperan.",
     "pkg.santiago.desc": "Modernidad y naturaleza al pie de los Andes.",
     "pkg.montevideo.desc": "Ciudad costera con encanto europeo y playas increíbles.",
+    "insta.title": "Síguenos en Instagram",
+    "insta.desc": "Mantente al día con nuestras últimas ofertas and destinos @vhtours_br",
+    "insta.btn": "@ Ver más en Instagram",
+
   },
   pt: {
     "nav.home": "Início",
@@ -89,6 +94,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "nav.packages": "Pacotes",
     "nav.payment": "Pagamentos",
     "nav.contact": "Contato",
+    "nav.admin": "Area Admin",
 
     "hero.title1": "O MOMENTO DE",
     "hero.title2": "VIAJAR É AGORA",
@@ -150,6 +156,10 @@ export const translations: Record<Language, Record<string, string>> = {
     "pkg.rio.desc": "Praias paradisíacas, samba e o Cristo Redentor te esperam.",
     "pkg.santiago.desc": "Modernidade e natureza ao pé dos Andes.",
     "pkg.montevideo.desc": "Cidade costeira com charme europeu e praias incríveis.",
+    "insta.title": "Siga-nos no Instagram",
+    "insta.desc": "Fique por dentro das nossas últimas ofertas and destinos @vhtours_br",
+    "insta.btn": "@ Ver mais no Instagram",
+
   },
   en: {
     "nav.home": "Home",
@@ -159,6 +169,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "nav.packages": "Packages",
     "nav.payment": "Payment",
     "nav.contact": "Contact",
+    "nav.admin": "Admin Area",
 
     "hero.title1": "THE TIME TO",
     "hero.title2": "TRAVEL IS NOW",
@@ -220,5 +231,9 @@ export const translations: Record<Language, Record<string, string>> = {
     "pkg.rio.desc": "Paradise beaches, samba and Christ the Redeemer await you.",
     "pkg.santiago.desc": "Modernity and nature at the foot of the Andes.",
     "pkg.montevideo.desc": "Coastal city with European charm and incredible beaches.",
+    "insta.title": "Follow us on Instagram",
+    "insta.desc": "Stay updated with our latest offers and destinations @vhtours_br",
+    "insta.btn": "@ See more on Instagram",
+
   },
 };

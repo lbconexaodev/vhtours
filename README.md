@@ -1,73 +1,53 @@
-# Welcome to your Lovable project
+# VHTours - Experiências Inesquecíveis
 
-## Project info
+VHTours é uma plataforma moderna para reserva de pacotes turísticos, focada em proporcionar a melhor experiência de viagem para nossos clientes.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🚀 Tecnologias
 
-## How can I edit this code?
+Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 
-There are several ways of editing your application.
+- **React** (com TypeScript)
+- **Vite** (Build tool rápida)
+- **Tailwind CSS** (Estilização responsiva)
+- **shadcn/ui** (Componentes de interface premium)
+- **React Router** (Navegação)
+- **TanStack Query** (Gerenciamento de estado de dados)
+- **i18next** (Suporte multi-idioma)
 
-**Use Lovable**
+## 📦 Instalação e Uso Local
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+Siga os passos abaixo para rodar o projeto em sua máquina:
 
-Changes made via Lovable will be committed automatically to this repo.
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/lbconexaodev/vhtours.git
+   ```
 
-**Use your preferred IDE**
+2. **Entre na pasta do projeto:**
+   ```bash
+   cd vhtours
+   ```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+3. **Instale as dependências:**
+   ```bash
+   npm install
+   ```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+4. **Inicie o servidor de desenvolvimento:**
+   ```bash
+   npm run dev
+   ```
 
-Follow these steps:
+5. **Acesse no navegador:**
+   O projeto estará disponível em `http://localhost:5173`.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🛠️ Estrutura do Projeto
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- `src/components`: Componentes reutilizáveis da interface.
+- `src/pages`: Páginas principais da aplicação (`Index`, `Admin`).
+- `src/hooks`: Custom hooks para lógica compartilhada.
+- `src/i18n`: Configurações de internacionalização.
+- `src/lib`: Utilitários e configurações de terceiros.
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+---
+Desenvolvido por **LB Conexão Dev**.
