@@ -46,10 +46,10 @@ const Navbar = () => {
               loop
               muted
               playsInline
-              poster="/logo-vhtours.jpg"
+              poster="logo-vhtours.jpg"
             >
-              <source src="/logo-animado-vhtours.mp4" type="video/mp4" />
-              <img src="/logo-vhtours.jpg" alt="VH Tours Logo" />
+              <source src="logo-animado-vhtours.mp4" type="video/mp4" />
+              <img src="logo-vhtours.jpg" alt="VH Tours Logo" />
             </video>
             <span className="text-xl font-display font-bold tracking-tight text-foreground transition-colors">
               VH TOURS

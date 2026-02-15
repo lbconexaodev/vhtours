@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img src="/logo-vhtours.jpg" alt="VH Tours Logo" className="w-12 h-12 rounded-full object-cover" />
+              <img src="logo-vhtours.jpg" alt="VH Tours Logo" className="w-12 h-12 rounded-full object-cover" />
               <span className="text-xl font-display font-bold">VH TOURS</span>
             </div>
             <p className="text-background/60 text-sm mb-4">{t("footer.trust")}</p>
@@ -80,13 +80,13 @@ const Footer = () => {
             <h3 className="font-display font-bold text-lg mb-4">{t("footer.certifications")}</h3>
             <div className="bg-background/10 rounded-xl p-4 space-y-4">
               <img
-                src="/cadastur-banner.jpg"
+                src="cadastur-banner.jpg"
                 alt="Cadastur Certificado"
                 className="w-full max-w-[220px] rounded-md border border-background/10"
               />
               <div className="flex items-start gap-3">
                 <img
-                  src="/cadastur-qr.jpg"
+                  src="cadastur-qr.jpg"
                   alt="QR Code Cadastur"
                   className="w-20 h-20 rounded-md border border-background/10 object-cover"
                 />
