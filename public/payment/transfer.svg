@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80" role="img" aria-label="Transferencia">
+  <rect x="4" y="4" width="112" height="72" rx="14" fill="#f7f6ff" stroke="#ddd9ff"/>
+  <path d="M20 34h80v22H20z" fill="#5f4bb6"/>
+  <path d="M16 32l44-18 44 18H16z" fill="#7a66d9"/>
+  <rect x="30" y="38" width="8" height="14" fill="#fff"/>
+  <rect x="46" y="38" width="8" height="14" fill="#fff"/>
+  <rect x="62" y="38" width="8" height="14" fill="#fff"/>
+  <rect x="78" y="38" width="8" height="14" fill="#fff"/>
+</svg>

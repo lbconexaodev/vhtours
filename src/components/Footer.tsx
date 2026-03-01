@@ -1,12 +1,61 @@
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const Footer = () => {
   const { t } = useLanguage();
+  const footerRef = useRef<HTMLElement>(null);
+  const inView = useInView(footerRef, {
+    once: false,
+    amount: 0.35,
+    margin: "-8% 0px -8% 0px",
+  });
+  const petals = [0, 72, 144, 216, 288];
 
   return (
-    <footer id="contact" className="bg-foreground text-background py-16">
-      <div className="container mx-auto px-4">
+    <footer ref={footerRef} id="contact" className="relative overflow-hidden bg-foreground text-background py-16">
+      <motion.div
+        className="pointer-events-none absolute inset-0"
+        initial={false}
+        animate={inView ? "open" : "closed"}
+        variants={{
+          closed: { opacity: 0.2, scale: 0.92 },
+          open: { opacity: 1, scale: 1 },
+        }}
+        transition={{ duration: 1.9, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <motion.div
+          className="absolute left-1/2 top-1/2 h-[82vmax] w-[82vmax] -translate-x-1/2 -translate-y-1/2 rounded-full bg-background/20 mix-blend-screen"
+          variants={{
+            closed: { scale: 0.05, opacity: 0.08 },
+            open: { scale: 1.04, opacity: 0.38 },
+          }}
+          transition={{ duration: 2.7, ease: [0.22, 1, 0.36, 1] }}
+        />
+        <motion.div
+          className="absolute left-1/2 top-1/2 h-[48vmax] w-[48vmax] -translate-x-1/2 -translate-y-1/2 rounded-full border border-background/25"
+          variants={{
+            closed: { scale: 0.25, opacity: 0 },
+            open: { scale: 1.25, opacity: 0.55 },
+          }}
+          transition={{ duration: 2.4, ease: [0.22, 1, 0.36, 1] }}
+        />
+        {petals.map((angle, i) => (
+          <motion.div
+            key={angle}
+            className="absolute left-1/2 top-1/2 h-[22vmax] w-[110vmax] -translate-x-1/2 -translate-y-1/2 rounded-[999px] bg-accent/16 mix-blend-screen"
+            style={{ rotate: `${angle}deg` }}
+            variants={{
+              closed: { scaleX: 0.08, opacity: 0.12 },
+              open: { scaleX: 1.35, opacity: 0.04 },
+            }}
+            transition={{ duration: 2.9, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+          />
+        ))}
+      </motion.div>
+
+      <div className="relative z-10 container mx-auto px-4">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
           <div>
             <div className="flex items-center gap-3 mb-4">

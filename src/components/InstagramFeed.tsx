@@ -4,7 +4,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 
 const instagramPosts = [
   { id: '1', url: 'https://www.instagram.com/reel/DND7gpNxtaq/' },
-  { id: '2', url: 'https://www.instagram.com/reel/DTdqCtGiWOG/' },
+  { id: '2', url: 'https://www.instagram.com/reel/DVSAPVTESbm/' },
   { id: '3', url: 'https://www.instagram.com/reel/DTQq9PPlJwT/' },
   { id: '4', url: 'https://www.instagram.com/reel/DS7i-SnkZlU/' },
   { id: '5', url: 'https://www.instagram.com/reel/DUts9aOiNDR/' }

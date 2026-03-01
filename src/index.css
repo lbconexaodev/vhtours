@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 270 52% 96.5%;
     --foreground: 270 20% 15%;
 
     font-size: 16px;
@@ -157,6 +157,11 @@
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+section[id],
+footer[id] {
+  scroll-margin-top: 96px;
 }
 
 /* Custom scrollbar */

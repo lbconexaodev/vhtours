@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80" role="img" aria-label="PIX">
+  <rect x="4" y="4" width="112" height="72" rx="14" fill="#f4fffb" stroke="#c8f1e4"/>
+  <path d="M60 19l12 12-12 12-12-12z" fill="#00b388"/>
+  <path d="M60 37l12 12-12 12-12-12z" fill="#00b388"/>
+  <text x="60" y="71" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#00a27c">PIX</text>
+</svg>

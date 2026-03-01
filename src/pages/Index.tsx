@@ -9,6 +9,7 @@ import PaymentSection from "@/components/PaymentSection";
 import WhatsAppPromo from "@/components/WhatsAppPromo";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import FloatingBrandBadge from "@/components/FloatingBrandBadge";
 
 const Index = () => {
   return (
@@ -23,6 +24,7 @@ const Index = () => {
       <PaymentSection />
       <WhatsAppPromo />
       <Footer />
+      <FloatingBrandBadge />
       <WhatsAppButton />
     </div>
   );

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, type MouseEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Menu, X, Globe } from "lucide-react";
@@ -30,6 +30,17 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleSectionClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
+    event.preventDefault();
+    const targetId = href.replace("#", "");
+    const target = document.getElementById(targetId);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    setIsOpen(false);
+    setLangOpen(false);
+  };
+
   return (
     <motion.header
       initial={{ y: -100 }}
@@ -39,7 +50,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-8">
         <nav className="flex items-center justify-between h-20">
-          <a href="#home" className="flex items-center gap-3 group">
+          <a href="#home" onClick={(event) => handleSectionClick(event, "#home")} className="flex items-center gap-3 group">
             <video
               className="w-11 h-11 rounded-full object-cover bg-white"
               autoPlay
@@ -63,6 +74,7 @@ const Navbar = () => {
                 <li key={item.href}>
                   <a
                     href={item.href}
+                    onClick={(event) => handleSectionClick(event, item.href)}
                     className="px-3 py-2 rounded-lg text-sm font-medium text-foreground hover:text-primary transition-all hover:bg-primary/10"
                   >
                     {item.label}
@@ -169,7 +181,7 @@ const Navbar = () => {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    onClick={() => setIsOpen(false)}
+                    onClick={(event) => handleSectionClick(event, item.href)}
                     className="block px-4 py-3 rounded-lg text-foreground hover:bg-secondary transition-colors font-medium"
                   >
                     {item.label}

@@ -1,15 +1,57 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { Search, MessageCircle } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
   const { t } = useLanguage();
+  const petals = [0, 72, 144, 216, 288];
+  const heroRef = useRef<HTMLElement>(null);
+  const heroInView = useInView(heroRef, {
+    once: false,
+    amount: 0.45,
+    margin: "-8% 0px -8% 0px",
+  });
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${heroBg})` }} />
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-vh-purple-deep/90" />
+    <section ref={heroRef} id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <motion.div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform"
+        style={{ backgroundImage: `url(${heroBg})` }}
+        variants={{
+          closed: { opacity: 0.36, scale: 1.08, clipPath: "circle(6% at 50% 50%)" },
+          open: { opacity: 1, scale: 1, clipPath: "circle(86% at 50% 50%)" },
+        }}
+        initial="closed"
+        animate={heroInView ? "open" : "closed"}
+        transition={{ duration: 3.4, ease: [0.16, 1, 0.3, 1] }}
+      />
+
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {petals.map((angle, i) => (
+          <motion.div
+            key={angle}
+            className="absolute left-1/2 top-1/2 w-[140vmax] h-[28vmax] -translate-x-1/2 -translate-y-1/2 rounded-[999px] bg-primary/22 will-change-transform"
+            style={{ rotate: `${angle}deg` }}
+            variants={{
+              closed: { scaleX: 0.18, opacity: 0.28 },
+              open: { scaleX: 1.34, opacity: 0 },
+            }}
+            initial="closed"
+            animate={heroInView ? "open" : "closed"}
+            transition={{ duration: 2.8, delay: i * 0.16, ease: [0.22, 1, 0.36, 1] }}
+          />
+        ))}
+      </div>
+
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-vh-purple-deep/90"
+        variants={{ closed: { opacity: 0.64 }, open: { opacity: 1 } }}
+        initial="closed"
+        animate={heroInView ? "open" : "closed"}
+        transition={{ duration: 1.8, delay: 0.2, ease: "easeOut" }}
+      />
 
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(5)].map((_, i) => (
