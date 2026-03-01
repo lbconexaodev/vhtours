@@ -2,7 +2,7 @@
 
 ## 1) Visão geral
 - Stack: `React 18 + Vite + TypeScript + Tailwind + Framer Motion`.
-- Roteamento: `react-router-dom` com `basename="/vhtours"`.
+- Roteamento: `react-router-dom` no domínio raiz `https://vhtours.com.br/`, sem `basename` fixo.
 - Estado global leve: `LanguageContext` (idioma).
 - Dados dinâmicos: seção de pacotes via `vhApi`.
 - UI base: componentes em `src/components/ui` (shadcn/radix).
@@ -80,7 +80,7 @@ git push origin main
 
 ## 8) Checklist pré-deploy
 - Build OK (`npm run build`).
-- Rotas funcionando com `basename="/vhtours"`.
+- Rotas funcionando no domínio raiz sem `basename` fixo.
 - Seção de pacotes carregando dados sem erro.
 - Ícones de pagamento visíveis.
 - Cards flutuantes sem sobreposição crítica em desktop/mobile.
