@@ -12,6 +12,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [pendingSection, setPendingSection] = useState<string | null>(null);
   const { language, setLanguage, t } = useLanguage();
 
   const navItems = [
@@ -30,15 +31,39 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (!pendingSection) {
+      return;
+    }
+
+    const timer = window.setTimeout(() => {
+      const target = document.getElementById(pendingSection);
+      if (!target) {
+        setPendingSection(null);
+        return;
+      }
+
+      const headerOffset = 96;
+      const targetTop = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: Math.max(targetTop, 0),
+        behavior: "smooth",
+      });
+      window.history.replaceState(null, "", `#${pendingSection}`);
+      setPendingSection(null);
+    }, 220);
+
+    return () => window.clearTimeout(timer);
+  }, [pendingSection]);
+
   const handleSectionClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
     event.preventDefault();
     const targetId = href.replace("#", "");
-    const target = document.getElementById(targetId);
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+
     setIsOpen(false);
     setLangOpen(false);
+    setPendingSection(targetId);
   };
 
   return (
